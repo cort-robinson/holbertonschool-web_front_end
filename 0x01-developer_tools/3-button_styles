@@ -46,4 +46,4 @@ transition-timing-function ease-in-out, ease-in-out, ease-in-out, ease-in-out
 user-select none
 vertical-align middle
 width 219.664px
--webkit-tap-highlight-color rgba(0, 0, 0, 0)s
+-webkit-tap-highlight-color rgba(0, 0, 0, 0)
