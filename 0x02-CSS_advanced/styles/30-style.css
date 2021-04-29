@@ -300,6 +300,12 @@ ul.row {
 }
 
 .card-work .card-title a::after {
+    position: absolute;
+    position: 0;
+    content: "";
+}
+
+.card-work:hover .card-title {
     opacity: 1;
 }
 
