@@ -145,6 +145,10 @@ ul.row {
     color: var(--text-color);
 }
 
+footer ul {
+    text-align: right;
+}
+
 .container {
     width: 960px;
     margin-left: auto;
@@ -182,8 +186,4 @@ ul.row {
 
 .footer {
     padding: var(--footer-padding);
-}
-
-footer ul {
-    text-align: right;
 }
