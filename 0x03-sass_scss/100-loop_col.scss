@@ -1,7 +1,7 @@
 /* 13. Columns and operators */
 
 @for $i from 1 through 4 {
-    col-#{$i} {
+    .col-#{$i} {
         width: 100% / $i;
     }
 }
