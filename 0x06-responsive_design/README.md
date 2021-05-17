@@ -1,0 +1,20 @@
+# 0x06. Responsive design
+
+## Resources:books:
+Read or watch:
+* [The building blocks of responsive design - Progressive web apps | MDN](https://intranet.hbtn.io/rltoken/xunPO8dNZy0mJpq8vbUMRA)
+* [A pragmatic guide to designing and building responsive web applications | developerlife.com](https://intranet.hbtn.io/rltoken/rs5zCrDpRaU6LD13-rG2yg)
+* [Understanding the difference between mobile-first, adaptive and responsive design](https://intranet.hbtn.io/rltoken/7W08yfp6vBGFlgoqZZc7eQ)
+* [LukeW | Mobile First](https://intranet.hbtn.io/rltoken/AMTqHMY4OeGET3nOdRH2uQ)
+* [Media Queries | A collection of inspirational websites using media queries and responsive web design](https://intranet.hbtn.io/rltoken/bk52ihWug_pe0QUghl99aQ)
+* [Responsive Design Newsletter](https://intranet.hbtn.io/rltoken/1k39DhswkQfzN7L4N7pO7w)
+
+---
+## Learning Objectives:bulb:
+What you should learn from this project:
+
+---
+---
+
+## Author
+* **Cort Robinson** - [cort-robinson](https://github.com/cort-robinson)
