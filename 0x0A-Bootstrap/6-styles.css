@@ -1,0 +1,53 @@
+:root {
+    --clr-primary: #E0003C;
+    --clr-primary-2: #BC1340;
+    --clr-muted: #8C8C8C;
+    --clr-light: white;
+
+    --card-border-radius: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--clr-primary);
+    border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--clr-primary-2);
+}
+
+.btn-outline-primary {
+    color: var(--clr-primary);
+    border-color: var(--clr-primary);
+}
+
+a,
+a:hover,
+a:focus {
+    color: var(--clr-primary);
+}
+
+.card {
+    border-color: var(--clr-primary);
+    border-radius: var(--card-border-radius);
+}
+
+.card-header {
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    border-radius: var(--card-border-radius);
+}
+
+.card-header:first-child {
+    border-radius: calc(var(--card-border-radius) - 1px) calc(var(--card-border-radius) - 1px) 0 0;
+}
+
+.text-muted {
+    color: var(--clr-muted);
+}
+
+.border-bottom {
+    border-color: var(--clr-primary) !important;
+}
