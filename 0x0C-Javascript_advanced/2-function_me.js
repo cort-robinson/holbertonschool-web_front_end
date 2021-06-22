@@ -1,6 +1,6 @@
 function welcomeMessage(fullName) {
     return function () {
-        alert('Welcome ' + fullName)
+        window.alert('Welcome ' + fullName)
     }
 }
 

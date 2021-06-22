@@ -1,15 +1,15 @@
 let globalVariable = "Welcome"
 
 function outer() {
-    alert(globalVariable)
+    window.alert(globalVariable)
     let course = "Holberton"
 
     function inner() {
-        alert(globalVariable + ' ' + course)
+        window.alert(globalVariable + ' ' + course)
         let exclamation = '!'
 
         function inception() {
-            alert(globalVariable + ' ' + course + exclamation)
+            window.alert(globalVariable + ' ' + course + exclamation)
         }
         inception()
     }
