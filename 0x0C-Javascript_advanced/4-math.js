@@ -1,5 +1,4 @@
 const divideBy = (firstNumber) => (secondNumber) => secondNumber / firstNumber
-
 const addBy = (firstNumber) => (secondNumber) => firstNumber + secondNumber
 
 const addBy100 = addBy(100)
