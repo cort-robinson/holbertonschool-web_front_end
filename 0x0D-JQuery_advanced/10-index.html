@@ -16,7 +16,7 @@
 
         function listPosts() {
             $.get('http://localhost:3000/posts')
-                .done((data, status) => data.forEach(item => addPostRow(item)))
+                .done((data) => data.forEach(item => addPostRow(item)))
                 .fail(() => alert('Server Error'));
         };
 
