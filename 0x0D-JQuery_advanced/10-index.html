@@ -15,7 +15,7 @@
         }
 
         function listPosts() {
-            $.getJSON('http://localhost:3000/posts', function(data, status) {
+            $.get('http://localhost:3000/posts', function(data, status) {
                 if (status === 'success')
                     data.forEach(item => addPostRow(item));
                 else
