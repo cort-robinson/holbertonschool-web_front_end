@@ -11,7 +11,17 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="application/javascript">
         function addPostRow(data) {
-            $('body').append(`<p><span>Post created with id ${data.id}, title: ${data.title}, author: ${data.author}`);
+            $('body').append(`<p id="row-${data.id}"><span>(delete)</span><span>Post created with id ${data.id}, title: ${data.title}, author: ${data.author}`);
+            $('p span:first-of-type').css('cursor', 'pointer').click(() => deletePost(data.id));
+        }
+
+        function deletePost(id) {
+            $.ajax({
+                url: 'http://localhost:3000/posts/' + id,
+                type: 'DELETE',
+                success: () => $('#row-' + id).remove(),
+                error: () => alert('Post was not deleted')
+            });
         }
 
         function listPosts() {
