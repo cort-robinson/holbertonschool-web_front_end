@@ -18,6 +18,8 @@
             $.getJSON('http://localhost:3000/posts', function(data, status) {
                 if (status === 'success')
                     data.forEach(item => addPostRow(item));
+                else
+                    alert('Server error');
             });
         }
 
