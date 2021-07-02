@@ -24,9 +24,17 @@
         }
 
         function showCookies() {
+            hideCookies();
             newPara = document.createElement('p');
+            newPara.id = 'cookies';
             newPara.innerHTML = 'Cookies: ' + document.cookie;
             document.body.append(newPara);
+        }
+
+        function hideCookies() {
+            const currCookies = document.getElementById('cookies');
+            if (currCookies)
+                currCookies.remove();
         }
 
         document.getElementById('login-btn').onclick = setCookies;
