@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task 1</title>
 </head>
+
 <body>
     <h2>Login to the website</h2>
     <input type="text" placeholder="Firstname" id="firstname">
@@ -15,6 +17,33 @@
     <h1>Cookies</h1>
     <button id="cookies-btn">Show the cookies</button>
 
-    <script src="src/1-index.js"></script>
+    <script>
+        function setCookies() {
+            const d = new Date();
+            d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
+            document.cookie = 'firstname=' + document.getElementById('firstname').value;
+            document.cookie = 'email=' + document.getElementById('email').value;
+            document.cookie = 'expires=' + d.toUTCString();
+        }
+
+        function showCookies() {
+            hideCookies();
+            newPara = document.createElement('p');
+            newPara.id = 'cookies';
+            newPara.innerHTML = 'Cookies: ' + document.cookie;
+            document.body.append(newPara);
+        }
+
+        function hideCookies() {
+            const currCookies = document.getElementById('cookies');
+            if (currCookies)
+                currCookies.remove();
+        }
+
+        document.getElementById('login-btn').onclick = setCookies;
+        document.getElementById('cookies-btn').onclick = showCookies;
+
+    </script>
 </body>
+
 </html>
