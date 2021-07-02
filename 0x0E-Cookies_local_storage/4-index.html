@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+</head>
+
+<body>
+    <div id="form">
+        <h2>Login to the website</h2>
+        <input type="text" placeholder="Firstname" id="firstname">
+        <input type="text" placeholder="Email" id="email">
+        <button id="login-btn">Log me in</button>
+    </div>
+
+    <h2>Cookies</h2>
+    <button id="cookies-btn">Show the cookies</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script>
+        function setCookiesAndShowWelcomeMessage() {
+            Cookies.set('firstname', document.getElementById('firstname').value, { expires: 10 });
+            Cookies.set('email', document.getElementById('email').value, { expires: 10 });
+            showWelcomeMessageOrForm();
+        }
+
+        function showCookies() {
+            hideCookies();
+            newPara = document.createElement('p');
+            newPara.id = 'cookies';
+            newPara.innerHTML = 'Email: ' + Cookies.get('email') + ' - Firstname: ' + Cookies.get('firstname');
+            document.body.append(newPara);
+        }
+
+        function hideCookies() {
+            const currCookies = document.getElementById('cookies');
+            if (currCookies)
+                currCookies.remove();
+        }
+
+        function showForm() {
+            const welcome = document.getElementById('welcome');
+            if (welcome)
+                welcome.remove();
+            document.getElementById('form').style.display = 'block';
+            hideCookies();
+        }
+
+        function hideForm() {
+            document.getElementById('form').style.display = 'none';
+            hideCookies();
+        }
+
+        function deleteCookiesAndShowForm() {
+            Cookies.remove('firstname');
+            Cookies.remove('email');
+            Cookies.remove('expires');
+            showForm();
+        }
+
+        function showWelcomeMessageOrForm() {
+            if (Cookies.get('name') === undefined && Cookies.get('email') === undefined)
+                showForm();
+            else {
+                const newH1 = document.createElement('h1');
+                newH1.innerHTML = 'Welcome: ' + Cookies.get('firstname');
+                newH1.id = 'welcome'
+                const newA = document.createElement('a');
+                newA.href = '#'
+                newA.innerHTML = '(logout)';
+                newA.style.cursor = 'pointer';
+                newA.style.fontStyle = 'italic';
+                newA.style.fontWeight = 'normal';
+                newA.style.paddingLeft = '10px';
+                newH1.appendChild(newA);
+                newA.onclick = deleteCookiesAndShowForm;
+                document.body.prepend(newH1);
+                hideForm();
+            }
+
+        }
+
+        document.getElementById('login-btn').onclick = setCookiesAndShowWelcomeMessage;
+        document.getElementById('cookies-btn').onclick = showCookies;
+    </script>
+</body>
+
+</html>
