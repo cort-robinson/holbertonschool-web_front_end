@@ -14,10 +14,10 @@
         const availableItems = ['Shampoo', 'Soap', 'Sponge', 'Water'];
 
         function addItemToCart(item) {
-            let numberOfItem = 1;
             if (item in sessionStorage)
-                numberOfItem = Cookies.get(item) + 1;
-            sessionStorage.setItem(item, '1');
+                sessionStorage[item] = parseInt(sessionStorage[item]) + 1;
+            else
+                sessionStorage.setItem(item, '1');
         }
 
         function createStore() {
@@ -72,18 +72,29 @@
                 document.getElementById('cartList').remove();
             const newUl = document.createElement('ul');
             newUl.id = 'cartList';
-            if (sessionStorage.length < 1) {
-                const emptyCartLi = document.createElement('li');
+
+            const emptyCartLi = document.createElement('li');
+            if (sessionStorage.length < 1)
                 emptyCartLi.innerHTML = 'Your cart is empty';
-                newUl.appendChild(emptyCartLi);
+            else {
+                emptyCartLi.innerHTML = 'Clear my cart';
+                emptyCartLi.style.cursor = 'pointer';
+                emptyCartLi.onclick = () => {
+                    sessionStorage.clear();
+                    updateCart();
+                }
             }
+            newUl.appendChild(emptyCartLi);
+
             for (let item in getCartFromStorage()) {
                 const newLi = document.createElement('li');
-                newLi.innerHTML = `${item} x ${Cookies.get(item)}`;
+                newLi.innerHTML = `${item} x ${sessionStorage[item]}`;
                 const newA = document.createElement('a');
                 newA.href = '#'
                 newA.innerHTML = '(remove)';
                 newA.style.cursor = 'pointer';
+                newA.style.textDecoration = 'none';
+                newA.style.color = 'inherit';
                 newA.style.paddingLeft = '10px';
                 newLi.appendChild(newA);
                 newA.onclick = () => removeItemFromCart(item);
@@ -93,7 +104,6 @@
         }
 
         if (typeof Storage !== "undefined") {
-            console.log(sessionStorage.length);
             createStore();
             displayCart();
         } else
